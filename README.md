@@ -61,13 +61,42 @@ Por enquanto, me mostre um arquivo HTML simples com um cabeçalho de saudação 
 organizado. Aqui está o que precisa da sua atenção hoje." e a data de hoje para garantir que tudo está funcionando. Use uma
 paleta escura, fonte bonita do Google Fonts, e deixa responsivo. Só isso por enquanto.
 ```
-Apenas com essa instrução inicial, a IA já gera e estrutura um modelo de dashboard funcional e responsivo.
+Apenas com essa instrução inicial, a IA já gera e estrutura um modelo de dashboard funcional e responsivo. Abra o arquivo `index.html` no seu navegador e verifique se a estrutura foi criada corretamente.
+
+Lembre-se de que a IA gera código com certa espontaneidade e criatividade. O resultado obtido neste projeto foi este que você vê abaixo, mas o seu dashboard pode apresentar nuances, cores ou um layout ligeiramente diferentes mesmo usando o mesmo prompt.
 
 Imagem_01
 
----
+#### 2.3.2 Incrementando o Layout com Exemplos e Limites
+
+Com a estrutura básica funcionando, o próximo passo é dar **Exemplos** dos componentes (cards) que queremos no painel. Quanto mais detalhes fornecermos, melhor será o resultado. 
+
+Contudo, lembre-se da estratégia de **Dividir as tarefas**: não peça lógicas complexas de programação agora para evitar grandes erros, e estabeleça **Limites** claros. Se você gostou da escolha inicial de cores e fontes da IA, mantenha-as; caso queira mudar, este é o momento ideal.
+
+**Prompt de incremento utilizado:**
+
+```
+Adicione ao dashboard:
+- Três cards de resumo: "Emails não lidos", "Reuniões hoje" e "Tarefas pendentes" (com números fictícios por enquanto).
+- Uma lista de "Agenda de hoje".
+- Um cronômetro estilo Pomodoro.
+- Um card: "Foco do dia:".
+- Um quadro de tarefas pendentes no estilo Kanban.
+- Uma seção para "Foco da semana:" e "Foco do dia".
+
+Não adicione JavaScript ainda — foque apenas na estruturação em HTML e na estilização com CSS.
+```
+Ao analisar o resultado, o layout pareceu um pouco poluído visualmente. Entramos então na fase de **Refinamento**, onde detalhamos à IA as mudanças pontuais que desejamos para limpar a interface e ajustar as funcionalidades antes de receber os dados reais. No meu caso apenas um pequeno ajuste:
+
+```
+Diminua o cronometro do pomodoro e deixe time de 50 com intervalo de 10
+```
+
+Obtiver uma resposta satisfatória, então seguimos:
+Imagem_02
 
 
+*****************************
 2.0 Mão na massa
 
  2.1 Crie uma pasta para começarmos
@@ -94,7 +123,7 @@ Imagem_01
 
 2.3.2 Tudo certo, então vamos dá Exemplos de cards que queremos, quanto mais detalhes melhor, mas não se esqueça que estamos Dividindo as tarefas, não peça tarefas muito complicadas agora, para evitar grandes erros e também já estabeleça Limites. Eu gostei da escolha de cores e fonte, mas caso queira mudar, essa é a hora!
 
- "
+```
 Adicione:
 - Três cards de resumo: "Emails não lidos", "Reuniões hoje" e "Tarefas pendentes" — com números falsos por enquanto
 - Uma lista de "Agenda de hoje"
@@ -104,23 +133,14 @@ Adicione:
 - crie uma sessão "Foco da semana:" e "Foco do dia"
 
 Não precisa de JavaScript ainda — só HTML e CSS.
-"
-Obtive esse resultado:
-
-Imagem_02
-Imagem_03
-
-Achei muito poluido, então vamos ao Refinamento: 
-"
-- Deixe os três cards "Emails não lidos", "Reuniões hoje" e "Tarefas pendentes" em quadrados lado a lado
-- Suba o "Foco do dia" e o "Foco da semana" para ficar logo abaixo da saudação e também deixe os menor
-- Diminua o quadro Pomodoro
-- Retire o "Integrações Inteligentes"
-
-"
+```
+Achei um pouco poluido, então vamos ao Refinamento: 
+```
+Diminua o cronometro do pomodoro e deixe time de 50 com intervalo de 10
+```
 
 Obtiver uma resposta satisfatória
-Imagem_04
+Imagem_02
 
 Agora de forma separada vamos acrescentar um gráfico de produtividade para sempre termos um overview mensal:
 
