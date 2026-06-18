@@ -1,14 +1,72 @@
 # Hanny - Personal AI Workspace
-## Dashboard inteligente de produtividade integrado ao Google Workspace
+### Dashboard inteligente de produtividade integrado ao Google Workspace
 
-1.0 Preparação
+---
 
- 1.1 Instale o Antigravity (funciona como um assistente de código que entende o contexto do seu projeto)
- 1.1.1 Na instalação quando perguntado "How do you want to use the Antigravity Agente?" Escolha: Agent-driven Development
- 1.1.2 Entre com sua conta Google
- 1.1.1 Caso queira que o progama fique em português é necessário baixar a extensão: Portuguese (Brazil) Language Pack (Tutorial completo em: https://agentpedia.codes/pt/blog/change-language)
+## 📌 Sobre o Projeto
 
- 1.2 Ative a verificação em 2 etapas (2FA) na sua conta Google no https://myaccount.google.com/security
+Este projeto foi desenvolvido durante a trilha de aprendizado da **PrograMaria** no **Sprint: IA no Trabalho**. 
+
+O objetivo principal foi a criação de um dashboard inteligente voltado para produtividade. Sob a orientação e mentoria de **Gabriela Surita**, Staff Research Engineer no Google DeepMind, o projeto teve sua primeira versão estruturada de forma ágil e sem programação utilizando a ferramenta **Antigravity**.
+
+---
+
+## 📋 Passo a Passo para Execução
+
+### 1.0 Preparação
+
+#### 1.1 Instalação do Antigravity IDE
+O Antigravity funciona como um assistente de código inteligente que entende todo o contexto do seu projeto.
+
+1. Baixe e instale o **Antigravity**.
+2. Durante a instalação, quando for exibida a pergunta *"How do you want to use the Antigravity Agent?"*, escolha a opção: **Agent-driven Development**.
+   > 💡 *Selecionamos **Agent-driven Development** porque o projeto exige que a IA aja com autonomia e compreenda o contexto completo do escopo para criar a estrutura do código para você.*
+4. Faça login utilizando a sua **Conta Google**.
+5. **(Opcional) Alterar o idioma para Português:**
+   * Caso prefira a interface em português, baixe a extensão **Portuguese (Brazil) Language Pack**.
+   * O tutorial completo de configuração pode ser acessado em: [Agentpedia - Change Language](https://agentpedia.codes/pt/blog/change-language).
+
+#### 1.2 Segurança da Conta Google
+Para garantir a integração segura com as ferramentas do ecossistema de produtividade:
+
+1. Acesse as configurações de segurança em [Google My Account - Security](https://myaccount.google.com/security).
+2. Ative a **Verificação em 2 etapas (2FA)** na sua conta.
+
+### 2.0 Mão na Massa
+
+#### 2.1 Configuração Inicial
+1. Crie uma nova pasta no seu computador para concentrar os arquivos do projeto.
+2. No ambiente do Antigravity, selecione o modelo de linguagem desejado. 
+   > 💡 *Neste projeto, foi utilizado o **Gemini 3.5 Flash Pro (Low)**, mas a escolha do modelo fica a seu critério.*
+
+#### 2.2 Estrutura de Engenharia de Prompt
+Para obter o melhor resultado do seu assistente de IA, estruture a sua conversa seguindo esta lógica:
+
+* **a) Contexto:** Defina claramente qual é o objetivo geral do seu projeto.
+* **b) Formato:** Especifique a entrega (ex: um dashboard aberto em um arquivo `index.html` que receberá dados do Gmail e Google Calendar).
+* **c) Exemplos:** Dê referências. A IA pode ser criativa, mas quanto mais exemplos você fornecer, mais fidedigno ao seu gosto será o resultado.
+* **d) Divisão de Tarefas:** Quebre o desenvolvimento em partes. O foco inicial deve ser criar a estrutura do `index.html`; foque em maiores detalhes como gráficos e dados reais apenas nas etapas seguintes.
+* **e) Limites:** Estabeleça restrições claras para evitar que o escopo do projeto saia do controle.
+* **f) Refinamento:** Peça pequenos ajustes incrementais até o layout ficar como deseja, antes de injetar os dados reais.
+
+#### 2.3 Executando o Primeiro Teste (MVP)
+É fundamental **começar pequeno**. Isso evita erros complexos logo no início e facilita a depuração caso algo dê errado. Primeiro, criamos um prompt simples focando apenas no **Contexto** e no **Formato** para validar a criação básica do arquivo HTML.
+
+**Exemplo de prompt utilizado:**
+```
+Olá! Vou criar um dashboard de início de dia que vai se conectar com Gmail e Google Calendar para me ajudar a não perder tempo
+quando chego do trabalho.
+
+Por enquanto, me mostre um arquivo HTML simples com um cabeçalho de saudação "Bem-vinda de volta, Kimie!" "Seu dia já está
+organizado. Aqui está o que precisa da sua atenção hoje." e a data de hoje para garantir que tudo está funcionando. Use uma
+paleta escura, fonte bonita do Google Fonts, e deixa responsivo. Só isso por enquanto.
+```
+Apenas com essa instrução inicial, a IA já gera e estrutura um modelo de dashboard funcional e responsivo.
+
+Imagem_01
+
+---
+
 
 2.0 Mão na massa
 
@@ -131,5 +189,20 @@ Quero que você:
 - Use as bibliotecas oficiais do Google para a web (GSI e GAPI).
 
 "
+apis e serviços -> Audience ->  Test users e digite seu email
 
- 
+Reinicie a tela e verifique se deu tudo certo
+Se aidna assim estão mostrando dados falso apenas peça para substituirem todos os dados falsos pelos verdadeiros agora
+Caso ocorrar mais erros, pode jogar no próprio chat o erro e pedi para ajudar a resolver.
+
+ATENÇÃO
+Esse projeto não é um incentivo a slops, nos orientou para criarmos nosso primeiro dashboard sem programação. Não descantando o estudo para entender mais profundamente sobre o projeto.....
+
+## 🛠️ Próximos Passos (Roadmap)
+
+- [x] Prototipagem inicial no Antigravity
+- [x] Estruturação da documentação (README)
+- [ ] Refatoração e reconstrução do código
+- [ ] Integração final com APIs do Google Workspace
+
+
