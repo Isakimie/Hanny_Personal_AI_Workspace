@@ -32,7 +32,7 @@ Para garantir a integração segura com as ferramentas do ecossistema de produti
 1. Acesse as configurações de segurança em [Google My Account - Security](https://myaccount.google.com/security).
 2. Ative a **Verificação em 2 etapas (2FA)** na sua conta.
 
-### 2.0 Mão na Massa
+### 2.0 Estruturação
 
 #### 2.1 Configuração Inicial
 1. Crie uma nova pasta no seu computador para concentrar os arquivos do projeto.
@@ -64,10 +64,10 @@ paleta escura, fonte bonita do Google Fonts, e deixa responsivo. Só isso por en
 Apenas com essa instrução inicial, a IA já gera e estrutura um modelo de dashboard funcional e responsivo. Abra o arquivo `index.html` no seu navegador e verifique se a estrutura foi criada corretamente.
 
 Lembre-se de que a IA gera código com certa espontaneidade e criatividade. O resultado obtido neste projeto foi este que você vê abaixo, mas o seu dashboard pode apresentar nuances, cores ou um layout ligeiramente diferentes mesmo usando o mesmo prompt.
-
-Imagem_01
-
-#### 2.3.2 Incrementando o Layout com Exemplos e Limites
+<br><br>
+ ![image alt](https://github.com/Isakimie/Hanny_Personal_AI_Workspace/blob/87b93d151708bf1f8157e536cbf5312eca21eee3/Imagens/Imagem_01.png)
+ <br><br>
+#### 2.4 Incrementando o Layout com Exemplos e Limites
 
 Com a estrutura básica funcionando, o próximo passo é dar **Exemplos** dos componentes (cards) que queremos no painel. Quanto mais detalhes fornecermos, melhor será o resultado. 
 
@@ -93,59 +93,15 @@ Diminua o cronometro do pomodoro e deixe time de 50 com intervalo de 10
 ```
 
 Obtiver uma resposta satisfatória, então seguimos:
-Imagem_02
+<br><br>
+ ![image alt](https://github.com/Isakimie/Hanny_Personal_AI_Workspace/blob/87b93d151708bf1f8157e536cbf5312eca21eee3/Imagens/Imagem_02.png)
+<br><br>
+Agora, de forma separada, vamos acrescentar um gráfico de produtividade para termos sempre um *overview* mensal do nosso desempenho. A ideia é criar um componente visualmente impactante e integrado.
 
-
-*****************************
-2.0 Mão na massa
-
- 2.1 Crie uma pasta para começarmos
- 2.2 Selecionei o "Gemini 3 Flash", mas fica a seu critério
- 2.3 Agora vamos começar nosso prompt, seguindo a seguinte ideia:
- a) Contexto: qual será o objetivo do seu projeto
- b) Formato: um dahsboard que vai receber dados do Gmail e Google Calendar e será aberto em um index.html
- c) Exemplos: a IA pode ser criativa, mas quanto mais exemplos você der, mais fidedigno ao que você quer será
- d) Divida as tarefas: a principio o foco é criar o index.html e depois focar no design, então acrescentamos gráficos e dados reais
- e) Limites: defina limites para seu projeto não sair totalmente do controle
- f) Refinamento: pedir mais ajustes até ficar como deseja, antes de receber os dados reais.
- 
- 2.3.1 Primeiro vamos apenas cria um simples prompt para dar o Contexto e o Formato. Então verificar se tudo ocorreu bem na criação do index.html. É importante começarmos pequeno, para evitar erros logo no inicio e se case ocorra, seja de fácil solução.
- Exemplo utilizado:
- 
- "
-Olá! Vou criar um dashboard de início de dia que vai se conectar com Gmail e Google Calendar para me ajudar a não perder tempo quando chego no trabalho.
-
-Por enquanto, me mostre um arquivo HTML simples com um cabeçalho de saudação "Bem-vinda de volta, Kimie!" "Seu dia já está organizado. Aqui está o que precisa da sua atenção hoje." e a data de hoje para garantir que tudo está funcionando. Use uma paleta escura, fonte bonita do Google Fonts, e deixa responsivo. Só isso por enquanto.
-"
-
-Apenas com esse pedido ele já me retornou um modelo de dashboard interessante.
-Imagem_01
-
-2.3.2 Tudo certo, então vamos dá Exemplos de cards que queremos, quanto mais detalhes melhor, mas não se esqueça que estamos Dividindo as tarefas, não peça tarefas muito complicadas agora, para evitar grandes erros e também já estabeleça Limites. Eu gostei da escolha de cores e fonte, mas caso queira mudar, essa é a hora!
+**Prompt de incremento utilizado:**
 
 ```
-Adicione:
-- Três cards de resumo: "Emails não lidos", "Reuniões hoje" e "Tarefas pendentes" — com números falsos por enquanto
-- Uma lista de "Agenda de hoje"
-- Um pomodoro
-- Um card: "Foco do dia:" - — com números falsos por enquanto
-- acrescente um quadro de tarefas pendentes no estilo Kanban
-- crie uma sessão "Foco da semana:" e "Foco do dia"
-
-Não precisa de JavaScript ainda — só HTML e CSS.
-```
-Achei um pouco poluido, então vamos ao Refinamento: 
-```
-Diminua o cronometro do pomodoro e deixe time de 50 com intervalo de 10
-```
-
-Obtiver uma resposta satisfatória
-Imagem_02
-
-Agora de forma separada vamos acrescentar um gráfico de produtividade para sempre termos um overview mensal:
-
-"
-Ao final do dashboard, crie um heatmap mensal de produtividade inspirado no estilo do GitHub Contributions.
+Abaixo do Foco da Semana, crie um heatmap mensal de produtividade inspirado no estilo do GitHub Contributions.
 
 - Caso utilize alguma biblioteca auxiliar, importe via CDN (sem instalar nada).
 - O heatmap principal deve ser construído com CSS Grid puro.
@@ -155,74 +111,109 @@ Ao final do dashboard, crie um heatmap mensal de produtividade inspirado no esti
 - Utilize tons de roxo e verde suaves combinando com o restante da interface.
 - O componente deve parecer moderno, minimalista e integrado ao restante do layout.
 - Adicione um pequeno título acima: “Consistência do mês”
+```
+O meu resultado ficou assim! Sinta-se à vontade para acrescentar ou modificar qualquer componente que achar necessário para ajudar na sua organização diária, antes de seguirmos para o passo 3.
+<br><br>
+![Interface do Dashboard Refinado](https://github.com/Isakimie/Hanny_Personal_AI_Workspace/blob/78f4354cfc1aff6887426f29621bb29ba4f6e53c/Imagens/Imagem_03.png)
+<br><br>
+### 3.0 Implementando Dados Reais
 
-"
+#### 3.1 Rodando o Projeto em um Servidor Local
 
-3.0 Dados reais
+Até agora, você estava abrindo o arquivo `index.html` diretamente pelo computador (dando dois cliques nele). Isso funciona perfeitamente para páginas estáticas e simples, mas integrações seguras com serviços do Google, como Gmail e Google Calendar, exigem obrigatoriamente que o projeto esteja rodando dentro de um **servidor local** (localhost).
 
-3.1 Rodando o projeto em um sevidor local
-Até agora, você estava abrindo o arquivo HTML diretamente pelo computador. Isso funciona para páginas simples, mas integrações com serviços do Google, como Gmail e Google Calendar, exigem que o projeto esteja rodando em um servidor local.
+Como estamos fazendo todo o desenvolvimento na abordagem de *vibecoding*, vamos delegar essa configuração de infraestrutura e pedir para o Antigravity configurar e iniciar esse servidor para nós de forma automática.
 
-Como estamos fazendo tudo com vibecoding, vamos pedir para o Antigravity configurar e iniciar esse servidor para nós automaticamente.
+**Prompt utilizado para iniciar o servidor:**
 
-"
+```
 Sirva este projeto usando um servidor na porta 8000.
-"
+```
 
-3.2 Criando as credeciais no Google Cloud
-Para acessar o Gmail e o Calendar com a conta do próprio usuário, vamos criar um ID de cliente OAuth no Google Cloud Console. É o que permite que o dashboard peça permissão à conta Google da pessoa que acessar. 
+#### 3.2 Criando as Credenciais no Google Cloud
 
-3.2.1 Acesse [console.cloud.google.com](https://console.cloud.google.com/) e faça login com sua conta Google.
-3.2.2 My First Project -> Novo Projeto
-3.2.3 De o nome ao seu projeto, no meu caso: HannyPersonalAI
-3.2.4 Crie seu projeto
+Para que o dashboard acesse o Gmail e o Google Calendar com a conta do próprio usuário de forma segura, precisamos criar um **ID de cliente OAuth** no Google Cloud Console. É essa configuração que permite que o painel peça a permissão necessária à conta Google da pessoa que o estiver acessando.
 
-Projeto criado, agora vamos criar nossa API
-3.2.5 No menu lateral, vá em APIs e Serviços → Biblioteca e ative a Gmail API, Google Calendar API e Google Tasks API.
-3.2.6 No mesmo menu lateral na aba APIs e Serviços → Tela de permissão OAuth → Visão Geral e clique em Vamos começar
-3.2.7 Preencha:
-      Nome do app: [HannyPersonalAI]
-      E-mail para suporte ao usuario: [seu e-mail]
-      Público: Externo
-      Endereços de e-mail: [seu e-mail]
-3.2.8 Concorde com os termos de uso e crie
+**Passo a Passo:**
 
-E então agora vamos criar nosssa credencial:
-3.2.9 Ainda em Visão geral de OAuth, em Métricas clique em Criar um cliente OAuth
-3.2.10 Em Tipo de aplicativo selecione Aplicativo da Web
-3.2.11 Em Origens JavaScript autorizadas clique em Adicionar URI e preencha:
-      URIs 1: http://localhost:8000
-      URIs 2: http://127.0.0.1:8000
-3.2.12 Criar e salva o ID do cliente
+1. Acesse o site [console.cloud.google.com](https://console.cloud.google.com/) e faça login com a sua conta Google.
+2. No menu superior esquerdo, clique no seletor de projetos (geralmente nomeado como *My First Project*) e selecione a opção **Novo Projeto**.
+3. Dê um nome de identificação ao seu projeto. *No meu caso, utilizei o nome:* `HannyPersonalAI`.
+4. Clique no botão **Criar** para concluir a abertura do projeto no painel.
 
-3.3 Integrando os dados reais
+#### 3.3 Ativando as APIs necessárias
+Para que o assistente consiga ler as suas informações, precisamos habilitar o acesso aos serviços correspondentes na biblioteca do Google:
 
-3.3.1 Agora vamos pedir para conectar as APIs do Google ao Client ID
-"
+1. No menu lateral esquerdo, navegue até **APIs e Serviços** → **Biblioteca**.
+2. Na barra de pesquisa, busque e clique em **Ativar** para cada uma das seguintes APIs:
+   * **Gmail API**
+   * **Google Calendar API**
+   * **Google Tasks API**
+
+#### 3.4 Configurando a Tela de Consentimento OAuth
+Esta é a tela de segurança que avisa ao usuário quais dados o dashboard vai acessar antes de fazer o login.
+
+1. No menu lateral, acesse **APIs e Serviços** → **Tela de consentimento OAuth**.
+2. Na seção de visão geral, clique no botão **Vamos começar**.
+3. Preencha o formulário de identificação do app com as seguintes informações:
+   * **Nome do app:** `HannyPersonalAI`
+   * **E-mail para suporte ao usuário:** *[Insira o seu e-mail da conta Google]*
+   * **Público:** Selecione a opção **Externo**
+   * **Informações de contato do desenvolvedor (Endereços de e-mail):** *[Insira o seu e-mail novamente]*
+4. Avance pelas etapas subsequentes aceitando as configurações padrão, concorde com os termos de uso e conclua a criação da tela.
+
+#### 3.5 Gerando o ID do Cliente OAuth
+Com a tela de consentimento salva, o próprio painel do Google mostrará uma página de resumo. É através dela que vamos gerar as chaves de acesso para o dashboard:
+
+1. Ainda na tela de **Visão geral de OAuth**, na seção **Métricas** clique no botão **Criar um cliente OAuth**.
+4. No campo **Tipo de aplicativo**, selecione a opção: **Aplicativo da Web**.
+5. Vá até a seção **Origens JavaScript autorizadas**, clique no botão **Adicionar URI** e preencha com os dois endereços locais abaixo:
+   * **URIs 1:** `http://localhost:8000`
+   * **URIs 2:** `http://127.0.0.1:8000`
+6. Clique no botão **Criar** no final da página.
+7. Uma janela pop-up será exibida com as suas chaves. Copie e salve com segurança o **ID do cliente** (Client ID), pois precisaremos dele na próxima etapa.
+
+### 3.6 Conectando o Painel às APIs do Google
+Com o seu Client ID em mãos, vamos instruir a IA a criar a lógica de autenticação e substituir todos os elementos fictícios do dashboard por informações dinâmicas do seu dia.
+
+**Prompt de integração utilizado:**
+
+```
 Agora vamos integrar o Google Sign-In no dashboard para buscar dados reais.
 
-Usa este Client ID: [cole seu Client ID]
+Usa este Client ID: [Cole aqui o seu Client ID gerado no passo anterior]
 
 Quero que você:
 - Adicione um pequeno botão "Entrar com Google" no canto superior direito do dashboard.
-- Após o login, substitua os dados falsos do dashboard (número de emails, reuniões) pelas informações reais da minha conta do Gmail, Google Calendar e Google Tasks para o dia de hoje.
+- Após o login, substitua todos os dados falsos do dashboard (número de e-mails, reuniões...) pelas informações reais da minha conta do Gmail, Google Calendar e Google Tasks para o dia de hoje.
 - Use as bibliotecas oficiais do Google para a web (GSI e GAPI).
+```
+#### 3.7 Configuração de Usuários de Teste
 
-"
-apis e serviços -> Audience ->  Test users e digite seu email
+Como o projeto está em ambiente de desenvolvimento, o Google exige que você autorize explicitamente quem pode fazer login:
 
-Reinicie a tela e verifique se deu tudo certo
-Se aidna assim estão mostrando dados falso apenas peça para substituirem todos os dados falsos pelos verdadeiros agora
-Caso ocorrar mais erros, pode jogar no próprio chat o erro e pedi para ajudar a resolver.
+1. No menu lateral do Google Cloud Console, acesse **APIs e Serviços** → **Audience** → **Test users**.
+2. Clique em adicionar usuários e digite o seu e-mail do Google.
+3. Reinicie a tela do seu dashboard (`http://localhost:8000`) e verifique se o login ocorreu com sucesso.
 
-ATENÇÃO
-Esse projeto não é um incentivo a slops, nos orientou para criarmos nosso primeiro dashboard sem programação. Não descantando o estudo para entender mais profundamente sobre o projeto.....
+> 💡 **Dica de Debug:** Se mesmo após o login o painel ainda mostrar dados fictícios, envie um prompt direto à IA: *"Substitua todos os dados falsos remanescentes pelas variáveis reais que vêm da API agora."* Caso ocorram outros erros no console, copie a mensagem, jogue no próprio chat do assistente e peça ajuda para resolver.
 
-## 🛠️ Próximos Passos (Roadmap)
+#### 3.8 Resultado Final 🎉
 
-- [x] Prototipagem inicial no Antigravity
-- [x] Estruturação da documentação (README)
-- [ ] Refatoração e reconstrução do código
-- [ ] Integração final com APIs do Google Workspace
+Assim ficou o meu dashboard, agora totalmente funcional e integrado com as minhas informações reais em tempo real!
+<br><br>
+![Dashboard Final com Dados Reais Integrados](https://github.com/Isakimie/Hanny_Personal_AI_Workspace/blob/82adcaecbdd7285c6cda6518f67664866109362f/Imagens/Imagem_04.png)
+<br><br>
+Parabéns! Se você chegou até aqui, o seu **Personal AI Workspace** está pronto, configurado e rodando localmente de forma segura. 🚀
+<br><br>
+## ⚠️ ATENÇÃO:
+Este projeto **não é um incentivo à criação de *slops*** (códigos superficiais ou descartáveis gerados por IA sem critérios). A proposta aqui foi guiar o desenvolvimento do seu primeiro dashboard funcional utilizando engenharia de prompt e *vibecoding*, permitindo que você tire uma ideia do papel sem travar nas barreiras iniciais da sintaxe da programação.
 
+**Isso não descarta a necessidade do estudo aprofundado.** Usar a IA para estruturar a base é uma excelente alavanca de produtividade, mas compreender o HTML, CSS e JavaScript por trás do código é o que vai te diferenciar.
+<br>
+
+---
+<p align="center">
+  <small>Projeto de <b>Isabela Ota</b>, realizado no curso PrograMaria Sprint IA no trabalho 2026 com a mentoria de <b>Gabriela Surita</b> - Staff Research Engineer no Google DeepMind.</small>
+</p>
 
