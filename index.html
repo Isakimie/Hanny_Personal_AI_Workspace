@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +15,18 @@
             --bg-card-hover: rgba(18, 20, 32, 0.85);
             --border-glass: rgba(255, 255, 255, 0.05);
             --border-glass-glow: rgba(139, 92, 246, 0.25);
-            
+
             --color-text-primary: #f8fafc;
             --color-text-secondary: #94a3b8;
             --color-text-muted: #64748b;
-            
+
             /* Theme Accent Colors */
             --accent-purple: #8b5cf6;
             --accent-amber: #f59e0b;
             --accent-cyan: #06b6d4;
             --accent-emerald: #10b981;
             --accent-rose: #f43f5e;
-            
+
             /* Gradients */
             --gradient-accent-1: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%);
         }
@@ -40,10 +41,28 @@
             box-sizing: border-box;
         }
 
-        h1, h2, h3, p { margin: 0; }
-        
-        h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 16px; color: var(--color-text-primary); }
-        h3 { font-size: 1rem; font-weight: 600; margin-bottom: 16px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 1px;}
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text-primary);
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--color-text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .dashboard {
             max-width: 1200px;
@@ -137,7 +156,7 @@
             grid-template-columns: 2fr 1fr;
             gap: 24px;
         }
-        
+
         .column {
             display: flex;
             flex-direction: column;
@@ -204,7 +223,7 @@
             background: var(--gradient-accent-1);
             border-color: transparent;
         }
-        
+
         .focus-card {
             border-color: rgba(139, 92, 246, 0.4);
             box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
@@ -246,21 +265,52 @@
             border-color: var(--accent-cyan);
         }
 
+        .heatmap-container {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .heatmap-cell {
+            aspect-ratio: 1;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .heatmap-cell:hover {
+            transform: scale(1.15);
+            box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+            z-index: 10;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .heatmap-level-1 { background-color: rgba(139, 92, 246, 0.3); border-color: rgba(139, 92, 246, 0.4); }
+        .heatmap-level-2 { background-color: rgba(139, 92, 246, 0.7); border-color: rgba(139, 92, 246, 0.8); }
+        .heatmap-level-3 { background-color: rgba(16, 185, 129, 0.4); border-color: rgba(16, 185, 129, 0.5); }
+        .heatmap-level-4 { background-color: rgba(16, 185, 129, 0.8); border-color: rgba(16, 185, 129, 0.9); }
+
         @media (max-width: 900px) {
             .header-card {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
             }
+
             .main-grid {
                 grid-template-columns: 1fr;
             }
+
             .kanban-board {
                 grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div class="dashboard">
@@ -315,7 +365,8 @@
                     <h2>Pomodoro</h2>
                     <div class="pomodoro-container">
                         <div class="pomodoro-timer">50:00</div>
-                        <p style="color: var(--color-text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Foco: 50 min | Pausa: 10 min</p>
+                        <p style="color: var(--color-text-secondary); margin-bottom: 20px; font-size: 0.9rem;">Foco: 50
+                            min | Pausa: 10 min</p>
                         <div class="btn-group">
                             <button class="btn">Iniciar</button>
                             <button class="btn">Pausar</button>
@@ -329,14 +380,21 @@
             <div class="column">
                 <div class="card focus-card">
                     <h2>Foco do Dia</h2>
-                    <p class="focus-text">Terminar o rascunho da interface em HTML/CSS e alinhar as cores do projeto.</p>
+                    <p class="focus-text">Terminar o rascunho da interface em HTML/CSS e alinhar as cores do projeto.
+                    </p>
                 </div>
 
                 <div class="card">
                     <h2>Foco da Semana</h2>
                     <p style="color: var(--color-text-secondary); line-height: 1.5;">
-                        Apresentar a primeira versão funcional do Dashboard de Início de Dia conectada com as APIs (MVP).
+                        Apresentar a primeira versão funcional do Dashboard de Início de Dia conectada com as APIs
+                        (MVP).
                     </p>
+                </div>
+
+                <div class="card">
+                    <h2>Consistência do mês</h2>
+                    <div class="heatmap-container" id="productivity-heatmap"></div>
                 </div>
             </div>
         </div>
@@ -381,16 +439,36 @@
             const dateElement = document.getElementById('current-date');
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const today = new Date();
-            
+
             let dateString = today.toLocaleDateString('pt-BR', options);
             // Capitalize the first letter
             dateString = dateString.charAt(0).toUpperCase() + dateString.slice(1);
-            
+
             dateElement.textContent = dateString;
         }
 
+        function generateHeatmap() {
+            const container = document.getElementById('productivity-heatmap');
+            const daysInMonth = 31;
+            
+            for (let i = 0; i < daysInMonth; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('heatmap-cell');
+                
+                const level = Math.floor(Math.random() * 5);
+                if (level > 0) {
+                    cell.classList.add(`heatmap-level-${level}`);
+                }
+                
+                cell.title = `Dia ${i + 1} - Nível de foco: ${level}`;
+                container.appendChild(cell);
+            }
+        }
+
         updateDate();
+        generateHeatmap();
     </script>
 
 </body>
+
 </html>
