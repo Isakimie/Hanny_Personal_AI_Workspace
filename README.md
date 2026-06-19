@@ -173,7 +173,7 @@ Com a tela de consentimento salva, o próprio painel do Google mostrará uma pá
 6. Clique no botão **Criar** no final da página.
 7. Uma janela pop-up será exibida com as suas chaves. Copie e salve com segurança o **ID do cliente** (Client ID), pois precisaremos dele na próxima etapa.
 
-### 3.6 Conectando o Painel às APIs do Google
+#### 3.6 Conectando o Painel às APIs do Google
 Com o seu Client ID em mãos, vamos instruir a IA a criar a lógica de autenticação e substituir todos os elementos fictícios do dashboard por informações dinâmicas do seu dia.
 
 **Prompt de integração utilizado:**
