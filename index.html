@@ -320,22 +320,29 @@
                 <h1>Bem-vinda de volta, <span class="highlight">Kimie!</span></h1>
                 <p class="subtitle">Seu dia já está organizado. Aqui está o que precisa da sua atenção hoje.</p>
             </div>
-            <div class="date-display" id="current-date">Carregando data...</div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 12px;">
+                <div class="date-display" id="current-date">Carregando data...</div>
+                <button id="google-signin-btn" class="btn" style="display: none; background: #fff; color: #3c4043; border: 1px solid #dadce0; align-items: center; gap: 8px;">
+                    <svg style="width: 18px; height: 18px;" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                    Entrar com Google
+                </button>
+                <div id="user-info" style="display: none; color: var(--color-text-secondary); font-size: 0.9rem;"></div>
+            </div>
         </div>
 
         <!-- Cards de Resumo -->
         <div class="summary-grid">
             <div class="card summary-card">
                 <div class="summary-title">Emails não lidos</div>
-                <div class="summary-value" style="color: var(--accent-cyan);">14</div>
+                <div class="summary-value" id="count-emails" style="color: var(--accent-cyan);">-</div>
             </div>
             <div class="card summary-card">
                 <div class="summary-title">Reuniões hoje</div>
-                <div class="summary-value" style="color: var(--accent-amber);">3</div>
+                <div class="summary-value" id="count-meetings" style="color: var(--accent-amber);">-</div>
             </div>
             <div class="card summary-card">
                 <div class="summary-title">Tarefas pendentes</div>
-                <div class="summary-value" style="color: var(--accent-rose);">8</div>
+                <div class="summary-value" id="count-tasks" style="color: var(--accent-rose);">-</div>
             </div>
         </div>
 
@@ -345,18 +352,9 @@
             <div class="column">
                 <div class="card">
                     <h2>Agenda de Hoje</h2>
-                    <ul class="agenda-list">
-                        <li class="agenda-item">
-                            <span class="agenda-time">09:30</span>
-                            <span class="agenda-desc">Reunião Diária de Sincronização</span>
-                        </li>
-                        <li class="agenda-item" style="border-left-color: var(--accent-amber);">
-                            <span class="agenda-time">13:00</span>
-                            <span class="agenda-desc">Almoço com Equipe</span>
-                        </li>
-                        <li class="agenda-item" style="border-left-color: var(--accent-purple);">
-                            <span class="agenda-time">15:00</span>
-                            <span class="agenda-desc">Revisão de Design do Dashboard</span>
+                    <ul class="agenda-list" id="agenda-list">
+                        <li class="agenda-item" style="border-left-color: transparent;">
+                            <span class="agenda-desc" style="color: var(--color-text-secondary); font-size: 0.9rem;">Faça login para carregar a agenda.</span>
                         </li>
                     </ul>
                 </div>
@@ -404,30 +402,19 @@
             <h2>Tarefas (Kanban)</h2>
             <div class="kanban-board">
                 <!-- Coluna A Fazer -->
-                <div class="kanban-col">
+                <div class="kanban-col" id="kanban-todo">
                     <h3>A Fazer</h3>
-                    <div class="kanban-item">Criar credenciais da API do Google Cloud</div>
-                    <div class="kanban-item">Ler documentação do Gmail API</div>
-                    <div class="kanban-item">Configurar OAuth 2.0</div>
+                    <div class="kanban-item" style="background: transparent; border: none; padding: 0; color: var(--color-text-secondary); font-size: 0.9rem; cursor: default;">Faça login para carregar as tarefas.</div>
                 </div>
 
                 <!-- Coluna Em Andamento -->
-                <div class="kanban-col">
+                <div class="kanban-col" id="kanban-doing">
                     <h3>Em Andamento</h3>
-                    <div class="kanban-item" style="border-left: 3px solid var(--accent-amber);">
-                        Montar layout base do Dashboard (HTML/CSS)
-                    </div>
                 </div>
 
                 <!-- Coluna Concluído -->
-                <div class="kanban-col">
+                <div class="kanban-col" id="kanban-done">
                     <h3>Concluído</h3>
-                    <div class="kanban-item" style="border-left: 3px solid var(--accent-emerald); opacity: 0.7;">
-                        Definir paleta de cores e tipografia
-                    </div>
-                    <div class="kanban-item" style="border-left: 3px solid var(--accent-emerald); opacity: 0.7;">
-                        Configurar repositório inicial
-                    </div>
                 </div>
             </div>
         </div>
@@ -467,8 +454,149 @@
 
         updateDate();
         generateHeatmap();
-    </script>
 
+        // --- Google Sign-In & API Logic ---
+        const CLIENT_ID = '883747304712-idq7aqqrfu6nj6u0p54s8tjpviinftrb.apps.googleusercontent.com';
+        const DISCOVERY_DOCS = [
+            'https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest',
+            'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+            'https://tasks.googleapis.com/$discovery/rest?version=v1'
+        ];
+        const SCOPES = 'https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/calendar.readonly https://www.googleapis.com/auth/tasks.readonly';
+
+        let tokenClient;
+        let gapiInited = false;
+        let gisInited = false;
+
+        document.getElementById('google-signin-btn').style.display = 'flex';
+
+        function gapiLoaded() {
+            gapi.load('client', initializeGapiClient);
+        }
+
+        async function initializeGapiClient() {
+            try {
+                await gapi.client.init({
+                    discoveryDocs: DISCOVERY_DOCS,
+                });
+                gapiInited = true;
+            } catch(e) {
+                console.error("Erro ao inicializar GAPI:", e);
+            }
+        }
+
+        function gisLoaded() {
+            tokenClient = google.accounts.oauth2.initTokenClient({
+                client_id: CLIENT_ID,
+                scope: SCOPES,
+                callback: (response) => {
+                    if (response.error !== undefined) {
+                        throw (response);
+                    }
+                    document.getElementById('google-signin-btn').style.display = 'none';
+                    document.getElementById('user-info').style.display = 'block';
+                    document.getElementById('user-info').innerText = 'Conectado ✅';
+                    fetchData();
+                },
+            });
+            gisInited = true;
+        }
+
+        document.getElementById('google-signin-btn').onclick = handleAuthClick;
+
+        function handleAuthClick() {
+            if (!gisInited) {
+                alert("As bibliotecas do Google ainda estão carregando. Por favor, aguarde um segundo e tente novamente.");
+                return;
+            }
+            tokenClient.requestAccessToken({prompt: 'consent'});
+        }
+
+        async function fetchData() {
+            try {
+                // 1. Fetch Emails
+                const gmailResponse = await gapi.client.gmail.users.labels.get({
+                    userId: 'me',
+                    id: 'INBOX'
+                });
+                const unreadEmails = gmailResponse.result.messagesUnread;
+                document.getElementById('count-emails').innerText = unreadEmails;
+
+                // 2. Fetch Calendar Events for Today
+                const now = new Date();
+                const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).toISOString();
+                const endOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59).toISOString();
+
+                const calendarResponse = await gapi.client.calendar.events.list({
+                    calendarId: 'primary',
+                    timeMin: startOfDay,
+                    timeMax: endOfDay,
+                    showDeleted: false,
+                    singleEvents: true,
+                    orderBy: 'startTime'
+                });
+
+                const events = calendarResponse.result.items;
+                document.getElementById('count-meetings').innerText = events.length;
+                
+                const agendaList = document.getElementById('agenda-list');
+                agendaList.innerHTML = '';
+                if (events.length > 0) {
+                    const colors = ['var(--accent-cyan)', 'var(--accent-amber)', 'var(--accent-purple)', 'var(--accent-emerald)'];
+                    events.forEach((event, index) => {
+                        let timeString = 'Dia todo';
+                        if (event.start.dateTime) {
+                            const date = new Date(event.start.dateTime);
+                            timeString = date.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'});
+                        }
+                        const color = colors[index % colors.length];
+                        agendaList.innerHTML += `
+                        <li class="agenda-item" style="border-left-color: ${color};">
+                            <span class="agenda-time">${timeString}</span>
+                            <span class="agenda-desc">${event.summary}</span>
+                        </li>`;
+                    });
+                } else {
+                    agendaList.innerHTML = '<li class="agenda-item" style="border-left-color: transparent;"><span class="agenda-desc" style="color: var(--color-text-secondary); font-size: 0.9rem;">Sem reuniões hoje! 🎉</span></li>';
+                }
+
+                // 3. Fetch Tasks
+                const taskListsResponse = await gapi.client.tasks.tasklists.list();
+                if (taskListsResponse.result.items && taskListsResponse.result.items.length > 0) {
+                    const taskListId = taskListsResponse.result.items[0].id;
+                    const tasksResponse = await gapi.client.tasks.tasks.list({
+                        tasklist: taskListId,
+                        showCompleted: true,
+                        showHidden: false
+                    });
+                    
+                    const tasks = tasksResponse.result.items || [];
+                    const pendingTasks = tasks.filter(t => t.status !== 'completed');
+                    const completedTasks = tasks.filter(t => t.status === 'completed');
+                    
+                    document.getElementById('count-tasks').innerText = pendingTasks.length;
+
+                    const kanbanTodo = document.getElementById('kanban-todo');
+                    kanbanTodo.innerHTML = '<h3>A Fazer</h3>';
+                    pendingTasks.forEach(task => {
+                        kanbanTodo.innerHTML += `<div class="kanban-item">${task.title}</div>`;
+                    });
+
+                    const kanbanDone = document.getElementById('kanban-done');
+                    kanbanDone.innerHTML = '<h3>Concluído</h3>';
+                    completedTasks.forEach(task => {
+                        kanbanDone.innerHTML += `<div class="kanban-item" style="border-left: 3px solid var(--accent-emerald); opacity: 0.7;">${task.title}</div>`;
+                    });
+                }
+                
+            } catch (err) {
+                console.error("Erro ao buscar dados do Google: ", err);
+                alert("Erro ao buscar dados. Verifique o console.");
+            }
+        }
+    </script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="gapiLoaded()"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </body>
 
 </html>
